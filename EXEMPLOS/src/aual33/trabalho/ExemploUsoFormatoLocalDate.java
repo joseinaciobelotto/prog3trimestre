@@ -58,8 +58,8 @@ public class ExemploUsoFormatoLocalDate {
 
             switch (a) {
                 case 1: incluirPaciente();
-                case 2:
-                case 3:
+                case 2: alterarPaciente();
+                case 3: realizarAtendimento();
                 case 4:
                 case 5:
                 case 6:
@@ -74,7 +74,42 @@ public class ExemploUsoFormatoLocalDate {
     }
 
 
-    public static void incluirPaciente() {
+    public static void listarPacientes()
+    {
+
+        for(Paciente p1:listaPacientes )
+        {
+            System.out.println(p1.getNome() + p1.getSobrenome());
+            System.out.println(p1.getDataNascimento());
+            System.out.println(p1);
+
+        }
+
+    }
+
+    public static void realizarAtendimento()
+    {
+        System.out.println("Digite o nome do paciente a ser consultado: ");
+        String nome = ler.next();
+
+        for(Paciente p1:listaPacientes )
+        {
+            if (p1.getNome().equals(nome))
+            {
+                Atendimento a1 = new Atendimento();
+                System.out.println("Digite a descrição do atendimento: ");
+                a1.setDescricao(ler.next());
+                a1.setData();
+
+                /*p1.getAtendimentos(a1);*/
+
+            }
+        }
+
+    }
+
+
+        public static void incluirPaciente() {
 
         Paciente p1 = new Paciente();
         System.out.println("Digite o nome do paciente: ");
@@ -89,7 +124,24 @@ public class ExemploUsoFormatoLocalDate {
 
     }
 
-    
+    public static void alterarPaciente() {
+
+        System.out.println("Digite o nome do paciente a ser alterado: ");
+        String nome = ler.next();
+
+        for(Paciente p1:listaPacientes )
+        {
+            if(p1.getNome().equals(nome))
+            {
+                System.out.println("Digite o novo nome do paciente: ");
+                p1.setNome(ler.next());
+                System.out.println("Digite o novo sobrenome do paciente: ");
+                p1.setNome(ler.next());
+                System.out.println("Digite a novo data de nascimento do paciente (dd/mm/aaaa): ");
+                p1.setNome(ler.next());
+            }
+        }
+    }
 
 
     public void validaData() {

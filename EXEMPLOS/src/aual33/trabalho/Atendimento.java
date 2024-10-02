@@ -17,6 +17,18 @@ public class Atendimento {
         this.descricao = descricao;
     }
 
+    public LocalDate getData()
+    {
+       return data;
+    }
+
+    public void setData()
+    {
+        this.data = LocalDate.now();
+    }
+
+
+
     @Override
     public String toString()
     {
